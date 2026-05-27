@@ -15,21 +15,25 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // By pressing W the Player moved up
         if (Keyboard.current.wKey.isPressed)
         {
             this.transform.position += Vector3.up * speed * Time.deltaTime;
         }
 
+        // By pressing D the Player moved right
         if (Keyboard.current.dKey.isPressed)
         {
             this.transform.position += Vector3.right * speed * Time.deltaTime;
         }
 
+        // By pressing A the Player moved left
         if (Keyboard.current.aKey.isPressed)
         {
             this.transform.position += Vector3.left * speed * Time.deltaTime;
         }
 
+        // By pressing S the Player moved down
         if (Keyboard.current.sKey.isPressed)
         {
             this.transform.position += Vector3.down * speed * Time.deltaTime;

@@ -20,6 +20,7 @@ public class Follow_Camera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        // Camera follows the target smooth
         transform.position = Vector3.SmoothDamp(
             transform.position,
             target.position + offset,
