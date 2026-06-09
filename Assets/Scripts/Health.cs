@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
                 health -= damage;
             } else
             {
-                Death();
+                Die();
             }
         }
     }
@@ -53,14 +53,14 @@ public class Health : MonoBehaviour
         if (isAlive)
         {
             health = 0;
-            Death();
+            Die();
         }
     }
 
     // --- Private Methods
 
     // If the Player is dead
-    private void Death()
+    private void Die()
     {
         isAlive = false;
         // Destroy Player
