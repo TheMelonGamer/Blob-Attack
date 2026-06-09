@@ -6,7 +6,7 @@ public class Attack : MonoBehaviour
     [SerializeField]
     private float attackDamage = 1f;
     [SerializeField]
-    private float attackRange = 5f;
+    private float attackRange = 2f;
 
 
     // Update is called once per frame
