@@ -15,12 +15,13 @@ public class Attack : MonoBehaviour
         // By pressing the Left Mouse Button
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
+            Collider2D foundedObj = Physics2D.OverlapCircle(this.transform.position, attackRange);
             // Checking if a GameObject is nearby
-            if (Physics2D.OverlapCircle(this.transform.position, attackRange))
+            if (foundedObj.CompareTag("Enemy"))
             {
-                Health enemy = GetComponent<Health>();
+                Health enemy = foundedObj.GetComponent<Health>();
                 enemy.TakeDamage(attackDamage);
-                Debug.Log($"Enemy attack with {attackDamage} Damage");
+                Debug.Log($"{enemy.name} attack with {attackDamage} Damage");
             }
             else { Debug.Log("No Enemy found"); }
         }

@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        isAlive = true;
     }
 
     // --- Public Methods
@@ -21,9 +22,10 @@ public class Health : MonoBehaviour
     {
         if (isAlive)
         {
-            if (health < damage)
+            if (health > damage)
             {
                 health -= damage;
+                Debug.Log("Damage taked");
             } else
             {
                 Die();
@@ -63,6 +65,8 @@ public class Health : MonoBehaviour
     private void Die()
     {
         isAlive = false;
+        health = 0;
+        this.gameObject.SetActive(false);
         // Destroy Player
         // Play Animation
     }
