@@ -200,3 +200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Attack
   attackDamage: 1
   attackRange: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128

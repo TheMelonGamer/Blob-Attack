@@ -7,6 +7,8 @@ public class Attack : MonoBehaviour
     private float attackDamage = 1f;
     [SerializeField]
     private float attackRange = 2f;
+    [SerializeField]
+    private LayerMask enemyLayer;
 
 
     // Update is called once per frame
@@ -15,15 +17,24 @@ public class Attack : MonoBehaviour
         // By pressing the Left Mouse Button
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Collider2D foundedObj = Physics2D.OverlapCircle(this.transform.position, attackRange);
             // Checking if a GameObject is nearby
-            if (foundedObj.CompareTag("Enemy"))
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(
+                transform.position, attackRange, enemyLayer);
+
+            // Attack any Enemy within range
+            foreach (Collider2D enemyCollider in enemies)
             {
-                Health enemy = foundedObj.GetComponent<Health>();
-                enemy.TakeDamage(attackDamage);
-                Debug.Log($"{enemy.name} attack with {attackDamage} Damage");
+                if (enemyCollider.TryGetComponent<Health>(out Health enemy))
+                { 
+                    enemy.TakeDamage(attackDamage);
+                    Debug.Log($"{enemy.name} attack with {attackDamage} Damage");
+                }
             }
-            else { Debug.Log("No Enemy found"); }
+
+            if (enemies.Length == 0)
+            { 
+                Debug.Log("No Enemy found"); 
+            }
         }
     }
 }

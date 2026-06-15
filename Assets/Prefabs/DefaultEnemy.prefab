@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 2662882047676323979}
   - component: {fileID: 5774414245852103902}
   - component: {fileID: 1307055310168298094}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DefaultEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -323,4 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 3
+  attackDamage: 1
+  attackSpeed: 2
+  attackRange: 1.5
   player: {fileID: 0}
